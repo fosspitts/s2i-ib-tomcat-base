@@ -22,7 +22,7 @@ RUN mkdir -p /ib/appl
 
 WORKDIR /ib/appl
 ## Create user
-useradd -d /ib/appl -s /bin/bash -G staff ibcomadm
+RUN useradd -d /ib/appl -s /bin/bash -G staff ibcomadm
 RUN passwd -f -u ibcomadm
 RUN echo ibcomadm | passwd --stdin ibcomadm
 
