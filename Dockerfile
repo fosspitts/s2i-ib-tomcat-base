@@ -49,6 +49,6 @@ USER 1001
 
 
 EXPOSE 8080
-WORKDIR /usr/libexec/s2i
 
-CMD ["usage"]
+
+CMD ["/usr/libexec/s2i/usage"]
