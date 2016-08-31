@@ -52,4 +52,4 @@ USER 1001
 EXPOSE 8080
 WORKDIR /ib/appl/tomcat7/bin
 
-CMD ["catalina.sh", "run"]
+CMD ["usage"]
