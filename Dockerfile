@@ -22,7 +22,8 @@ RUN mkdir -p /ib/appl
 
 WORKDIR /ib/appl
 ## Create user
-RUN useradd -d /ib/appl -s /bin/bash -G staff ibcomadm
+RUN groupadd gibcomadm
+RUN useradd -d /ib/appl -s /bin/bash -G gibcomadm ibcomadm
 RUN passwd -f -u ibcomadm
 RUN echo ibcomadm | passwd --stdin ibcomadm
 
@@ -32,8 +33,6 @@ RUN ln -s apache-tomcat-7.0.70 tomcat7
 RUN rm -rf /ib/appl/tomcat7/bin/*.bat
 RUN rm -rf apache-tomcat-7.0.70.tar.gz
 
-
-
 # TODO (optional): Copy the builder files into /opt/app-root
 # COPY ./<builder_folder>/ /opt/app-root/
 
@@ -41,7 +40,7 @@ RUN rm -rf apache-tomcat-7.0.70.tar.gz
 COPY ./.s2i/bin/ /usr/libexec/s2i
 
 # TODO: Drop the root user and make the content of /opt/app-root owned by user 1001
-RUN chown -R ibcomadm:staff /ib/appl
+RUN chown -R ibcomadm:gibcomadm /ib/appl
 
 # This default user is created in the openshift/base-centos7 image
 USER 1001
