@@ -52,4 +52,4 @@ USER 1001
 EXPOSE 8080
 
 
-CMD ["/ib/appl/tomcat7/bin/catalina.sh", "run"]
+CMD ["/bin/bash"]
