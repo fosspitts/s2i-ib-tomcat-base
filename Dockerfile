@@ -18,7 +18,7 @@ LABEL io.k8s.description="Imaging for build micro-service based tomcat deploymen
 RUN yum install -y wget curl java-1.7.0-openjdk-devel && yum clean all -y
 
 
-RUN mkdir /ib/appl
+RUN mkdir -p /ib/appl
 
 WORKDIR /ib/appl
 ## Create user
