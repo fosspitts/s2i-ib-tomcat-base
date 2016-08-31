@@ -27,6 +27,7 @@ RUN useradd -d /ib/appl -s /bin/bash -G gibcomadm ibcomadm
 RUN passwd -f -u ibcomadm
 RUN echo ibcomadm | passwd --stdin ibcomadm
 
+RUN cd /ib/appl
 RUN wget http://mirrors.ukfast.co.uk/sites/ftp.apache.org/tomcat/tomcat-7/v7.0.70/bin/apache-tomcat-7.0.70.tar.gz
 
 RUN ln -s apache-tomcat-7.0.70 tomcat7
