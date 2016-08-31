@@ -31,8 +31,8 @@ RUN cd /ib/appl
 RUN wget http://mirrors.ukfast.co.uk/sites/ftp.apache.org/tomcat/tomcat-7/v7.0.70/bin/apache-tomcat-7.0.70.tar.gz
 
 RUN ln -s apache-tomcat-7.0.70 tomcat7
-RUN rm -rf /ib/appl/tomcat7/bin/*.bat
-RUN rm -rf apache-tomcat-7.0.70.tar.gz
+#RUN rm -rf /ib/appl/tomcat7/bin/*.bat
+#RUN rm -rf apache-tomcat-7.0.70.tar.gz
 
 # TODO (optional): Copy the builder files into /opt/app-root
 # COPY ./<builder_folder>/ /opt/app-root/
