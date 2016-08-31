@@ -1,5 +1,5 @@
 
-# ib-tomcat
+# ib-services
 FROM openshift/base-centos7
 
 # TODO: Put the maintainer name in the image metadata
