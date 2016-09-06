@@ -25,6 +25,8 @@ fi
 
 echo "---> Downloading jenkins.war"
 
+cd /tmp
+
 wget http://mirrors.jenkins-ci.org/war/latest/jenkins.war
 
 echo "---> Copying jenkins.war to webapps"
