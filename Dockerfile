@@ -21,10 +21,10 @@ RUN mkdir -p /ib/appl
 
 WORKDIR /ib/appl
 ## Create user
-RUN groupadd gibcomadm
-RUN useradd -d /ib/appl -s /bin/bash -G gibcomadm ibcomadm
-RUN passwd -f -u ibcomadm
-RUN echo ibcomadm | passwd --stdin ibcomadm
+#RUN groupadd gibcomadm
+#RUN useradd -d /ib/appl -s /bin/bash -G gibcomadm ibcomadm
+#RUN passwd -f -u ibcomadm
+#RUN echo ibcomadm | passwd --stdin ibcomadm
 
 RUN cd /ib/appl
 RUN wget http://mirrors.ukfast.co.uk/sites/ftp.apache.org/tomcat/tomcat-7/v7.0.70/bin/apache-tomcat-7.0.70.tar.gz
@@ -41,8 +41,11 @@ RUN mkdir -p /usr/libexec/s2i
 COPY ./.s2i/bin/ /usr/libexec/s2i
 
 # TODO: Drop the root user and make the content of /opt/app-root owned by user 1001
-RUN chown -R ibcomadm:gibcomadm /ib/appl
+#RUN chown -R ibcomadm:gibcomadm /ib/appl
 
+RUN chgrp -R 0 /ib/appl
+RUN chmod -R g+rw /ib/appl
+RUN find /ib/appl -type d -exec chmod g+x {} +
 
 # TODO: Set the default port for applications built using this image
 

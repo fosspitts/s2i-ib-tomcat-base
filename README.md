@@ -1,6 +1,7 @@
 # s2i-test
 Testing Openshift's S2i capability
 
+https://github.com/justindav1s/s2i-ib-tomcat-base.git
 
 Build a base image running Centos7/OpenJDK 7/Tomcat7
 
@@ -29,4 +30,49 @@ s2i build . ib-tomcat-base ib-tomcat-jenkins
 
 then
 
-docker run -d -p 8080:8080 ib-tomcat-base
+docker run -d -p 8080:8080 ib-tomcat-jenkins
+
+sudo docker save ib-tomcat-base > ib-tomcat-base.tar
+
+sudo docker load < ib-tomcat-base.tar
+
+https://docs.openshift.com/enterprise/3.0/install_config/install/docker_registry.html
+
+[fedora@ip-172-31-26-89 ~]$ sudo docker ps | grep origin-docker-registry
+4ffcf611ec9e        openshift/origin-docker-registry:v1.2.0 "/bin/sh -c 'DOCKER_R"   51 minutes ago      Up 51 minutes                           k8s_registry.24455285_docker-registry-1-g0a30_default_0d408b03-7110-11e6-b6be-025ed4a15501_56306bfa
+[fedora@ip-172-31-26-89 ~]$ docker exec -it 4ffcf611ec9e find /registry
+/registry
+
+
+[root@ip-172-31-26-89 ~]# oc login
+Authentication required for https://ip-172-31-26-89.eu-west-1.compute.internal:8443 (openshift)
+Username: justin
+Password:
+Login successful.
+
+You have access to the following projects and can switch between them with 'oc project <projectname>':
+
+  * default (current)
+  * jc1
+  * logging
+  * management-infra
+  * openshift
+  * openshift-infra
+  * test
+
+Using project "default".
+[root@ip-172-31-26-89 ~]# oc whoami -t
+V2ifkPhcKgwKX3os9SnqP25G9UG1q7gWRotIbJt7i24
+
+
+docker login -u <username> -e <any_email_address> -p <token_value> <registry_service_host:port>
+
+get <registry_service_host:port> from registry pod in default project from console
+
+docker login -u justin -e justin.davis@ba.com -p V2ifkPhcKgwKX3os9SnqP25G9UG1q7gWRotIbJt7i24 172.30.231.65:5000
+
+docker tag ib-tomcat-base 172.30.231.65:5000/openshift/ib-tomcat-base
+
+docker push 172.30.231.65:5000/openshift/ib-tomcat-base
+
+Now visible amonst "other images"
