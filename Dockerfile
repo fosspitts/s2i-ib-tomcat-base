@@ -17,7 +17,7 @@ LABEL io.k8s.description="Image for building micro-service based tomcat deployme
 # TODO: Install required packages here:
 RUN yum install -y wget curl java-1.7.0-openjdk-devel && yum clean all -y
 RUN mkdir -p /ib/appl
-RUN cd /ib/appl
+WORKDIR /ib/appl
 RUN wget http://mirrors.ukfast.co.uk/sites/ftp.apache.org/tomcat/tomcat-7/v7.0.70/bin/apache-tomcat-7.0.70.tar.gz
 RUN tar xvf apache-tomcat-7.0.70.tar.gz
 RUN ln -s apache-tomcat-7.0.70 tomcat7
