@@ -44,13 +44,15 @@ COPY ./.s2i/bin/ /usr/libexec/s2i
 # TODO: Drop the root user and make the content of /opt/app-root owned by user 1001
 #RUN chown -R ibcomadm:gibcomadm /ib/appl
 
-USER 1001
+
 
 RUN chgrp -R 0 /ib/appl
 RUN chmod -R g+rw /ib/appl
 RUN find /ib/appl -type d -exec chmod g+x {} +
 
 # TODO: Set the default port for applications built using this image
+
+USER 1001
 
 EXPOSE 8080
 
