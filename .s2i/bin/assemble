@@ -37,6 +37,6 @@ echo "---> Checking location jenkins.war"
 
 ls -altr /ib/appl/tomcat7/webapps
 
-ECHO TEST1=$TEST1
-ECHO TEST2=$TEST2
+echo TEST1=$TEST1
+echo TEST2=$TEST2
 # TODO: Add build steps for your application, eg npm install, bundle install
