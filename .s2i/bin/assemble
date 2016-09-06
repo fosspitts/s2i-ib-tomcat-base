@@ -44,6 +44,6 @@ ls -altr /ib/appl/tomcat7/webapps
 
 set
 
-ECHO TEST=$TEST
-
+ECHO TEST1=$TEST1
+ECHO TEST2=$TEST2
 # TODO: Add build steps for your application, eg npm install, bundle install
