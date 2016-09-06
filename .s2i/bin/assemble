@@ -23,13 +23,6 @@ if [ "$(ls /tmp/artifacts/ 2>/dev/null)" ]; then
   mv /tmp/artifacts/. ./
 fi
 
-echo "---> Installing application source..."
-cp -Rf /tmp/src/. ./
-
-echo "---> Building application from source..."
-
-cd /tmp
-
 echo "---> Downloading jenkins.war"
 
 wget http://mirrors.jenkins-ci.org/war/latest/jenkins.war
