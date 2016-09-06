@@ -1,5 +1,4 @@
-
-# ib-services
+# ib-tomcat-base
 FROM  centos
 
 # TODO: Put the maintainer name in the image metadata
@@ -50,4 +49,4 @@ RUN chown -R ibcomadm:gibcomadm /ib/appl
 EXPOSE 8080
 
 #CMD ["/ib/appl/tomcat7/bin/catalina.sh", "run"]
-CMD ["usage"]
+CMD ["/usr/libexec/s2i/usage"]
