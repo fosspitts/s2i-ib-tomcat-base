@@ -21,5 +21,12 @@ docker run -d -p 8080:8080 ib-tomcat-base
 
 Check :
 
-http://localhost:8080
+Should get usage message
 
+to run s2i to build something useful :
+
+s2i build . ib-tomcat-base ib-tomcat-jenkins
+
+then
+
+docker run -d -p 8080:8080 ib-tomcat-base
