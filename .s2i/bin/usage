@@ -1,6 +1,6 @@
 #!/bin/bash -e
 cat <<EOF
-This is the ib-services S2I image:
+This is the ib-tomcat-base S2I image:
 To use it, install S2I: https://github.com/openshift/source-to-image
 
 Sample invocation:

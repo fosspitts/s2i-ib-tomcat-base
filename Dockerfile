@@ -1,6 +1,6 @@
 
 # ib-services
-FROM  centos/latest
+FROM  centos
 
 # TODO: Put the maintainer name in the image metadata
 MAINTAINER Justin DAvis <justinndavis@gmail.com>
@@ -38,18 +38,16 @@ RUN ln -s apache-tomcat-7.0.70 tomcat7
 # COPY ./<builder_folder>/ /opt/app-root/
 
 # TODO: Copy the S2I scripts to /usr/libexec/s2i, since openshift/base-centos7 image sets io.openshift.s2i.scripts-url label that way, or update that label
-£COPY ./.s2i/bin/ /usr/libexec/s2i
+RUN mkdir -p /usr/libexec/s2i
+COPY ./.s2i/bin/ /usr/libexec/s2i
 
 # TODO: Drop the root user and make the content of /opt/app-root owned by user 1001
 RUN chown -R ibcomadm:gibcomadm /ib/appl
 
-# This default user is created in the openshift/base-centos7 image
-#USER 1001
 
 # TODO: Set the default port for applications built using this image
 
-
 EXPOSE 8080
 
-
-CMD ["/ib/appl/tomcat7/bin/catalina.sh, "run"]
+#CMD ["/ib/appl/tomcat7/bin/catalina.sh", "run"]
+CMD ["usage"]

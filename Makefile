@@ -1,5 +1,5 @@
 
-IMAGE_NAME = ib-services
+IMAGE_NAME = ib-tomcat-base
 
 build:
 	docker build -t $(IMAGE_NAME) .
