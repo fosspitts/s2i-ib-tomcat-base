@@ -32,6 +32,12 @@ then
 
 docker run -d -p 8080:8080 ib-tomcat-jenkins
 
+git clone https://github.com/justindav1s/s2i-ib-tomcat-base.git
+cd s2i-ib-tomcat-base/
+sudo docker build -t ib-tomcat-base .
+sudo docker save ib-tomcat-base > ib-tomcat-base.tar
+scp ib-tomcat-base.tar fedora@172.31.26.89:~/
+
 sudo docker save ib-tomcat-base > ib-tomcat-base.tar
 
 sudo docker load < ib-tomcat-base.tar
