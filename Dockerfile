@@ -11,7 +11,8 @@ ENV BUILDER_VERSION 1.0
 LABEL io.k8s.description="Imaging for build micro-service based tomcat deployment" \
       io.k8s.display-name="builder 1.0.0" \
       io.openshift.expose-services="8080:http" \
-      io.openshift.tags="builder,1.0.0,tomcat,http"
+      io.openshift.tags="builder,1.0.0,tomcat,http" \
+      io.openshift.s2i.scripts-url="image:///usr/libexec/s2i"
 
 # TODO: Install required packages here:
 RUN yum install -y wget curl java-1.7.0-openjdk-devel && yum clean all -y
@@ -42,6 +43,8 @@ COPY ./.s2i/bin/ /usr/libexec/s2i
 
 # TODO: Drop the root user and make the content of /opt/app-root owned by user 1001
 #RUN chown -R ibcomadm:gibcomadm /ib/appl
+
+USER 1001
 
 RUN chgrp -R 0 /ib/appl
 RUN chmod -R g+rw /ib/appl
