@@ -29,6 +29,6 @@ ls -altr /tmp/src
 
 echo "---> Executing the deployer script ........"
 
-/tmp/src/deployer.sh
+/tmp/src/deploy.sh
 
 echo "---> Finished executing the deployer script ........"
