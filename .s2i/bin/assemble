@@ -16,27 +16,9 @@ if [[ "$1" == "-h" ]]; then
 	exec /usr/libexec/s2i/usage
 fi
 
-# Restore artifacts from the previous build (if they exist).
-#
-if [ "$(ls /tmp/artifacts/ 2>/dev/null)" ]; then
-  echo "---> Restoring build artifacts..."
-  mv /tmp/artifacts/. ./
-fi
 
-echo "---> Downloading jenkins.war"
+echo "---> Executing the deployer script ........"
 
-cd /tmp
+/tmp/deployer.sh
 
-wget http://mirrors.jenkins-ci.org/war/latest/jenkins.war
-
-echo "---> Copying jenkins.war to webapps"
-
-mv jenkins.war  /ib/appl/tomcat7/webapps
-
-echo "---> Checking location jenkins.war"
-
-ls -altr /ib/appl/tomcat7/webapps
-
-echo TEST1=$TEST1
-echo TEST2=$TEST2
-# TODO: Add build steps for your application, eg npm install, bundle install
+echo "---> Finished executing the deployer script ........"
