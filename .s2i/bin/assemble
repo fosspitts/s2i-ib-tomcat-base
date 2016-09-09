@@ -24,10 +24,11 @@ ls -ltr /usr/libexec/s2i
 echo "---> ls -altr /tmp ........"
 ls -altr /tmp
 
-
+echo "---> ls -altr /tmp/src ........"
+ls -altr /tmp/src
 
 echo "---> Executing the deployer script ........"
 
-/tmp/deployer.sh
+/tmp/src/deployer.sh
 
 echo "---> Finished executing the deployer script ........"
