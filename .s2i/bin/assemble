@@ -18,15 +18,6 @@ fi
 
 echo OPENSHIFT_BUILD_SOURCE=$OPENSHIFT_BUILD_SOURCE
 
-echo "---> ls -altr /usr/libexec/s2i ........"
-ls -ltr /usr/libexec/s2i
-
-echo "---> ls -altr /tmp ........"
-ls -altr /tmp
-
-echo "---> ls -altr /tmp/src ........"
-ls -altr /tmp/src
-
 echo "---> Executing the deployer script ........"
 
 /tmp/src/deploy.sh
