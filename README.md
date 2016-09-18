@@ -68,6 +68,7 @@ You have access to the following projects and can switch between them with 'oc p
 
 Using project "default".
 [root@ip-172-31-26-89 ~]# oc whoami -t
+
 V2ifkPhcKgwKX3os9SnqP25G9UG1q7gWRotIbJt7i24
 
 
@@ -82,3 +83,10 @@ docker tag ib-tomcat-base 172.30.231.65:5000/openshift/ib-tomcat-base
 docker push 172.30.231.65:5000/openshift/ib-tomcat-base
 
 Now visible amonst "other images"
+
+
+docker pull centos/postgresql-94-centos7
+docker images
+oc whoami -t
+docker login -u justin -e justin.davis@ba.com -p ........ 172.30.88.121:5000
+docker tag centos/postgresql-94-centos7 172.30.88.121:5000/centos/postgresql-94-centos7
