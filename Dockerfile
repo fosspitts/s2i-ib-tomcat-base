@@ -19,18 +19,12 @@ LABEL io.k8s.description="Image for building micro-service based tomcat deployme
       io.openshift.s2i.scripts-url="image:///usr/libexec/s2i"
 
 
-#RUN rpm -ivh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-8.noarch.rpm
-
+RUN rpm -ivh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-8.noarch.rpm
+RUN yum -y install wget curl java-1.7.0-openjdk-devel git ansible pyOpenSSL libxml2 libxslt
+RUN yum clean all -y
 
 RUN mkdir -p /ib/appl
 WORKDIR /ib/appl
-
-COPY epel-release-7-8.noarch.rpm /ib/appl
-RUN rpm -ivh /ib/appl/epel-release-7-8.noarch.rpm
-RUN yum -y install wget curl java-1.7.0-openjdk-devel git ansible pyOpenSSL libxml2 libxslt
-RUN yum clean all -y
-RUN rm -rf epel-release-7-8.noarch.rpm
-
 RUN wget http://mirrors.ukfast.co.uk/sites/ftp.apache.org/tomcat/tomcat-7/v7.0.72/bin/apache-tomcat-7.0.72.tar.gz
 RUN tar xvf apache-tomcat-7.0.72.tar.gz
 RUN ln -s apache-tomcat-7.0.72 tomcat7
