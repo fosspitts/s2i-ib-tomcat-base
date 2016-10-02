@@ -13,12 +13,12 @@ make
 
 or
 
-docker build -t ib-tomcat-base .
+docker build -t ib-services-base .
 
 Run the image locally on docker
 
 
-docker run -d -p 8080:8080 ib-tomcat-base
+docker run -d -p 8080:8080 ib-services-base
 
 Check :
 
@@ -90,3 +90,6 @@ docker images
 oc whoami -t
 docker login -u justin -e justin.davis@ba.com -p ........ 172.30.88.121:5000
 docker tag centos/postgresql-94-centos7 172.30.88.121:5000/centos/postgresql-94-centos7
+
+docker tag ib-services-base 172.30.88.121:5000/openshift/ib-services-base
+docker push 172.30.88.121:5000/openshift/ib-services-base

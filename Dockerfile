@@ -4,6 +4,8 @@ FROM  centos
 MAINTAINER Justin Davis <justinndavis@gmail.com>
 
 ENV BUILDER_VERSION 1.0
+ENV TOMCAT_VERSION 7.0.70
+ENV JAVA_VERSION 1.7
 
 LABEL io.k8s.description="Image for building micro-service based tomcat deployments" \
       io.k8s.display-name="builder 1.0.0" \
@@ -23,17 +25,17 @@ RUN tar xvf apache-tomcat-7.0.70.tar.gz
 RUN ln -s apache-tomcat-7.0.70 tomcat7
 RUN rm -rf apache-tomcat-7.0.70.tar.gz
 
-RUN wget http://central.maven.org/maven2/ch/qos/logback/logback-classic/1.1.7/logback-classic-1.1.7.jar
-RUN mv logback-classic-1.1.7.jar /ib/appl/tomcat7/lib
+#RUN wget http://central.maven.org/maven2/ch/qos/logback/logback-classic/1.1.7/logback-classic-1.1.7.jar
+#RUN mv logback-classic-1.1.7.jar /ib/appl/tomcat7/lib
 
-RUN wget http://central.maven.org/maven2/ch/qos/logback/logback-core/1.1.7/logback-core-1.1.7.jar
+#RUN wget http://central.maven.org/maven2/ch/qos/logback/logback-core/1.1.7/logback-core-1.1.7.jar
 RUN mv logback-core-1.1.7.jar /ib/appl/tomcat7/lib
 
-RUN wget http://central.maven.org/maven2/org/slf4j/slf4j-api/1.7.5/slf4j-api-1.7.5.jar
+#RUN wget http://central.maven.org/maven2/org/slf4j/slf4j-api/1.7.5/slf4j-api-1.7.5.jar
 RUN mv slf4j-api-1.7.5.jar /ib/appl/tomcat7/lib
 
-RUN wget http://central.maven.org/maven2/org/slf4j/jcl-over-slf4j/1.7.5/jcl-over-slf4j-1.7.5.jar
-RUN mv jcl-over-slf4j-1.7.5.jar /ib/appl/tomcat7/lib
+#RUN wget http://central.maven.org/maven2/org/slf4j/jcl-over-slf4j/1.7.5/jcl-over-slf4j-1.7.5.jar
+#RUN mv jcl-over-slf4j-1.7.5.jar /ib/appl/tomcat7/lib
 
 RUN mkdir -p /usr/libexec/s2i
 COPY ./.s2i/bin/ /usr/libexec/s2i
