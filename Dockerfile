@@ -4,7 +4,7 @@ FROM  centos
 MAINTAINER Justin Davis <justinndavis@gmail.com>
 
 ENV BUILDER_VERSION 1.0
-ENV TOMCAT_VERSION 7.0.70
+ENV TOMCAT_VERSION 7.0.72
 ENV JAVA_VERSION 1.7
 
 LABEL io.k8s.description="Image for building micro-service based tomcat deployments" \
@@ -20,10 +20,10 @@ RUN yum clean all -y
 
 RUN mkdir -p /ib/appl
 WORKDIR /ib/appl
-RUN wget http://mirrors.ukfast.co.uk/sites/ftp.apache.org/tomcat/tomcat-7/v7.0.70/bin/apache-tomcat-7.0.70.tar.gz
-RUN tar xvf apache-tomcat-7.0.70.tar.gz
-RUN ln -s apache-tomcat-7.0.70 tomcat7
-RUN rm -rf apache-tomcat-7.0.70.tar.gz
+RUN wget http://mirrors.ukfast.co.uk/sites/ftp.apache.org/tomcat/tomcat-7/v7.0.72/bin/apache-tomcat-7.0.72.tar.gz
+RUN tar xvf apache-tomcat-7.0.72.tar.gz
+RUN ln -s apache-tomcat-7.0.72 tomcat7
+RUN rm -rf apache-tomcat-7.0.72.tar.gz
 
 #RUN wget http://central.maven.org/maven2/ch/qos/logback/logback-classic/1.1.7/logback-classic-1.1.7.jar
 #RUN mv logback-classic-1.1.7.jar /ib/appl/tomcat7/lib
