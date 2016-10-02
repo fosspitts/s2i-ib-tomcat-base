@@ -7,7 +7,7 @@ ENV BUILDER_VERSION 1.0
 ENV TOMCAT_VERSION 7.0.72
 ENV JAVA_VERSION 1.7
 
-LABEL name=Iberia Base Centos/Tomcat Image
+LABEL name="Iberia Base Centos/Tomcat Image"
       vendor=Iberia
       license=GPLv2
       build-date=20161002
