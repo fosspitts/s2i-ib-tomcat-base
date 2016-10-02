@@ -7,10 +7,15 @@ ENV BUILDER_VERSION 1.0
 ENV TOMCAT_VERSION 7.0.72
 ENV JAVA_VERSION 1.7
 
+LABEL name=Iberia Base Centos/Tomcat Image
+      vendor=Iberia
+      license=GPLv2
+      build-date=20161002
+
 LABEL io.k8s.description="Image for building micro-service based tomcat deployments" \
-      io.k8s.display-name="builder 1.0.0" \
+      io.k8s.display-name="Iberia Base Centos/Tomcat 1.0.0" \
       io.openshift.expose-services="8080:http" \
-      io.openshift.tags="builder,1.0.0,tomcat,http" \
+      io.openshift.tags="builder,1.0.0,tomcat,http,iberia" \
       io.openshift.s2i.scripts-url="image:///usr/libexec/s2i"
 
 
