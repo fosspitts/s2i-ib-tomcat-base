@@ -29,10 +29,10 @@ RUN rm -rf apache-tomcat-7.0.72.tar.gz
 #RUN mv logback-classic-1.1.7.jar /ib/appl/tomcat7/lib
 
 #RUN wget http://central.maven.org/maven2/ch/qos/logback/logback-core/1.1.7/logback-core-1.1.7.jar
-RUN mv logback-core-1.1.7.jar /ib/appl/tomcat7/lib
+#RUN mv logback-core-1.1.7.jar /ib/appl/tomcat7/lib
 
 #RUN wget http://central.maven.org/maven2/org/slf4j/slf4j-api/1.7.5/slf4j-api-1.7.5.jar
-RUN mv slf4j-api-1.7.5.jar /ib/appl/tomcat7/lib
+#RUN mv slf4j-api-1.7.5.jar /ib/appl/tomcat7/lib
 
 #RUN wget http://central.maven.org/maven2/org/slf4j/jcl-over-slf4j/1.7.5/jcl-over-slf4j-1.7.5.jar
 #RUN mv jcl-over-slf4j-1.7.5.jar /ib/appl/tomcat7/lib
