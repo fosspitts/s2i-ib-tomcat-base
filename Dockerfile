@@ -19,8 +19,8 @@ LABEL io.k8s.description="Image for building micro-service based tomcat deployme
       io.openshift.s2i.scripts-url="image:///usr/libexec/s2i"
 
 
-RUN yum clean all -y
-RUN rpm -ivh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-8.noarch.rpm
+#RUN yum clean all -y
+#RUN rpm -ivh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-8.noarch.rpm
 RUN yum -y install wget curl java-1.7.0-openjdk-devel git ansible pyOpenSSL libxml2 libxslt
 RUN yum clean all -y
 
