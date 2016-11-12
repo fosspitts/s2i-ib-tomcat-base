@@ -1,5 +1,5 @@
 # ib-service-base
-FROM  centos7
+FROM  centos:7
 
 MAINTAINER Justin Davis <justinndavis@gmail.com>
 
