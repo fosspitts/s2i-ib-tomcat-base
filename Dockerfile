@@ -38,7 +38,7 @@ COPY ./.s2i/bin/ /usr/libexec/s2i
 RUN groupadd -r tomcat && useradd -u 1001 -g tomcat tomcat
 
 RUN chown -R tomcat:tomcat /ib/appl && \
- chmod -R g+rw /ib/appl && \
+ chmod -R 777 /ib/appl && \
  find /ib/appl -type d -exec chmod g+x {} +
 
 USER 1001
