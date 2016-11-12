@@ -35,11 +35,11 @@ RUN wget http://mirrors.ukfast.co.uk/sites/ftp.apache.org/tomcat/tomcat-7/v7.0.7
 
 COPY ./.s2i/bin/ /usr/libexec/s2i
 
-RUN chgrp -R 0 /ib/appl && \
+RUN groupadd -r tomcat && useradd -u 1001 -g tomcat tomcat
+
+RUN chown -R tomcat:tomcat /ib/appl && \
  chmod -R g+rw /ib/appl && \
  find /ib/appl -type d -exec chmod g+x {} +
-
-RUN groupadd -r tomcat && useradd -u 1001 -g tomcat tomcat
 
 USER 1001
 
