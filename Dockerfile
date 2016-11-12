@@ -1,5 +1,5 @@
-# ib-tomcat-base
-FROM  openshift/base-centos7
+# ib-service-base
+FROM  centos/centos7
 
 MAINTAINER Justin Davis <justinndavis@gmail.com>
 
