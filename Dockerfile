@@ -15,7 +15,7 @@ LABEL name="Iberia Base Centos/Tomcat Image" \
 LABEL io.k8s.description="Image for building micro-service based tomcat deployments" \
       io.k8s.display-name="Iberia Base Centos/Tomcat 1.0.0" \
       io.openshift.expose-services="8080:http" \
-      io.openshift.tags="builder,1.0.0,tomcat,http,iberia" \
+      io.openshift.tags="builder,tomcat,http,iberia" \
       io.openshift.s2i.scripts-url="image:///usr/libexec/s2i"
 
 
