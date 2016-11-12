@@ -7,16 +7,16 @@ ENV BUILDER_VERSION 1.0
 ENV TOMCAT_VERSION 7.0.72
 ENV JAVA_VERSION 1.7
 
-LABEL name="Iberia Base Centos/Tomcat Image" \
-      vendor=Iberia \
-      license=GPLv2 \
-      build-date=20161002
+LABEL name Iberia Base Centos/Tomcat Image
+LABEL vendor Iberia
+LABEL license GPLv2
+LABEL build-date 20161112
 
-LABEL io.k8s.description="Image for building micro-service based tomcat deployments" \
-      io.k8s.display-name="Iberia Base Centos/Tomcat 1.0.0" \
-      io.openshift.expose-services="8080:http" \
-      io.openshift.tags="builder,1.0.0,tomcat,http,iberia" \
-      io.openshift.s2i.scripts-url="image:///usr/libexec/s2i"
+LABEL io.k8s.description Image for building micro-service based tomcat deployments
+LABEL io.k8s.display-name Iberia Base Centos/Tomcat 1.0.0
+LABEL io.openshift.expose-service 8080:http
+LABEL io.openshift.tags builder,1.0.0,tomcat,http,iberia
+LABEL io.openshift.s2i.scripts-url image:///usr/libexec/s2i
 
 
 RUN rpm -ivh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-8.noarch.rpm
