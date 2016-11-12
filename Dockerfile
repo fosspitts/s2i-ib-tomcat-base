@@ -1,19 +1,20 @@
 # ib-tomcat-base
-FROM  centos
+FROM  openshift/base-centos7
 
 MAINTAINER Justin Davis <justinndavis@gmail.com>
+
+EXPOSE 8080
 
 ENV BUILDER_VERSION 1.0 \
  TOMCAT_VERSION 7.0.72 \
  JAVA_VERSION 1.7
 
-LABEL name="Iberia Base Centos/Tomcat Image" \
+LABEL name="Iberia Base Centos Tomcat Image" \
       vendor=Iberia \
-      license=GPLv2 \
-      build-date=20161002
+      license=GPLv2
 
 LABEL io.k8s.description="Image for building micro-service based tomcat deployments" \
-      io.k8s.display-name="Iberia Base Centos/Tomcat 1.0.0" \
+      io.k8s.display-name="Iberia Base Centos Tomcat" \
       io.openshift.expose-services="8080:http" \
       io.openshift.tags="builder,tomcat,http,iberia" \
       io.openshift.s2i.scripts-url="image:///usr/libexec/s2i"
@@ -39,7 +40,5 @@ RUN chgrp -R 0 /ib/appl && \
  find /ib/appl -type d -exec chmod g+x {} +
 
 USER 1001
-
-EXPOSE 8080
 
 CMD ["/usr/libexec/s2i/usage"]
