@@ -39,6 +39,8 @@ RUN chgrp -R 0 /ib/appl && \
  chmod -R g+rw /ib/appl && \
  find /ib/appl -type d -exec chmod g+x {} +
 
+RUN groupadd -r tomcat && useradd -u 1001 -g tomcat tomcat
+
 USER 1001
 
 CMD ["/usr/libexec/s2i/usage"]
