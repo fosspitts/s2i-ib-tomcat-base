@@ -18,11 +18,18 @@ fi
 
 echo OPENSHIFT_BUILD_SOURCE=$OPENSHIFT_BUILD_SOURCE
 
+echo *** environment variables ****
 env
+echo ******************************
 
-cd /ib/appl
+echo *** checking out ib-ansible-openshift ***
+mkdir ib-ansible-openshift
+cd ib-ansible-openshift
+git archive --format=tar \
+   --remote=http://git-apps.192.168.140.7.xip.io/git/justin/ib-ansible-openshift.git master | tar -xf -
+ls -ltr
+echo *****************************************
 
-git clone http://git-apps.192.168.140.7.xip.io/git/justin/ib-ansible-openshift.git
 
 echo "---> Executing the deployer script ........"
 

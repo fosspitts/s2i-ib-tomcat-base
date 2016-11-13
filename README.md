@@ -93,3 +93,8 @@ docker tag centos/postgresql-94-centos7 172.30.88.121:5000/centos/postgresql-94-
 
 docker tag ib-services-base 172.30.88.121:5000/openshift/ib-services-base
 docker push 172.30.88.121:5000/openshift/ib-services-base
+
+
+https://forums.docker.com/t/command-to-remove-all-unused-images/20/5
+
+docker rmi `docker images | awk '{ print $3; }'`
