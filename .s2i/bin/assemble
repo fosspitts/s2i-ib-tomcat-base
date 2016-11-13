@@ -20,6 +20,10 @@ echo OPENSHIFT_BUILD_SOURCE=$OPENSHIFT_BUILD_SOURCE
 
 env
 
+cd /ib/appl
+
+git clone http://git-apps.192.168.140.7.xip.io/git/justin/ib-ansible-openshift.git
+
 echo "---> Executing the deployer script ........"
 
 /tmp/src/deploy.sh
