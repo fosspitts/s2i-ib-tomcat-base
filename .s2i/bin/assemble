@@ -16,18 +16,13 @@ if [[ "$1" == "-h" ]]; then
 	exec /usr/libexec/s2i/usage
 fi
 
-echo OPENSHIFT_BUILD_SOURCE=$OPENSHIFT_BUILD_SOURCE
-
 echo *** environment variables ****
 env
 echo ******************************
 
 echo *** checking out ib-ansible-openshift ***
-mkdir ib-ansible-openshift
-cd ib-ansible-openshift
-git archive --format=tar \
-   --remote=http://git-apps.192.168.140.7.xip.io/git/justin/ib-ansible-openshift.git master | tar -xf -
-ls -ltr
+git clone http://git-apps.192.168.140.7.xip.io/git/justin/ib-ansible-openshift.git
+ls -ltr ib-ansible-openshift
 echo *****************************************
 
 
