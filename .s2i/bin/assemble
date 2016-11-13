@@ -18,6 +18,8 @@ fi
 
 echo OPENSHIFT_BUILD_SOURCE=$OPENSHIFT_BUILD_SOURCE
 
+env
+
 echo "---> Executing the deployer script ........"
 
 /tmp/src/deploy.sh
